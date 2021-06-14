@@ -2,6 +2,7 @@
 
 const parseJiraIssue = require('./parseJiraIssue');
 
+const lineSeparator = '\n';
 const commitMessageSeparator = '\n\n';
 
 // 1. get data
@@ -37,7 +38,7 @@ const [
 ] = getCommitSubjectAndBody();
 
 // 2. render
-const commitLines = `${GIT_CLONE_COMMIT_MESSAGE_SUBJECT}${commitMessageSeparator}${GIT_CLONE_COMMIT_MESSAGE_BODY}`.split(commitMessageSeparator);
+const commitLines = `${GIT_CLONE_COMMIT_MESSAGE_SUBJECT}${commitMessageSeparator}${GIT_CLONE_COMMIT_MESSAGE_BODY}`.split(lineSeparator);
 
 const issues = commitLines
   .flatMap(line => parseJiraIssue(line, JIRA_PROJECT_NAME))
