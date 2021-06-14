@@ -40,7 +40,7 @@ const [
 const commitLines = `${GIT_CLONE_COMMIT_MESSAGE_SUBJECT}${commitMessageSeparator}${GIT_CLONE_COMMIT_MESSAGE_BODY}`.split(commitMessageSeparator);
 
 const issues = commitLines
-  .map(line => parseJiraIssue(line, JIRA_PROJECT_NAME))
+  .flatMap(line => parseJiraIssue(line, JIRA_PROJECT_NAME))
   .filter(Boolean);
 
 const data = {
