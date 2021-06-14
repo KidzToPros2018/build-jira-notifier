@@ -1,0 +1,22 @@
+{
+  "name": "build-jira-notifier",
+  "version": "1.0.0",
+  "description": "Creates data for jira automation webhook used to notify after deployment succeeded",
+  "main": "index.js",
+  "bin": {
+    "get-data": "./index.js"
+  },
+  "scripts": {
+    "test": "node parseJiraIssue.test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KidzToPros2018/build-jira-notifier.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KidzToPros2018/build-jira-notifier/issues"
+  },
+  "homepage": "https://github.com/KidzToPros2018/build-jira-notifier#readme"
+}
