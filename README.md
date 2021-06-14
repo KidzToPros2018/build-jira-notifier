@@ -22,6 +22,8 @@ You can also add description:
 Or you can add multiple jira issues
 * `- KIDZDEV-123, KIDZDEV-124,KIDZDEV-125: optimize all of these`
 
+See `./parseJiraIssue.test.js`
+
 
 ## How to use
 

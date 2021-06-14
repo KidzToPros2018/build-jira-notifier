@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+const parseJiraIssue = require('./parseJiraIssue');
+
 const commitMessageSeparator = '\n\n';
 
 // 1. get data
@@ -7,6 +9,7 @@ const {
   GIT_CLONE_COMMIT_MESSAGE = process.env.CI_MESSAGE,
   GIT_CLONE_COMMIT_MESSAGE_SUBJECT: GIT_CLONE_COMMIT_MESSAGE_SUBJECT_ENV,
   GIT_CLONE_COMMIT_MESSAGE_BODY: GIT_CLONE_COMMIT_MESSAGE_BODY_ENV,
+  JIRA_PROJECT_NAME,
 } = process.env;
 
 const getCommitSubjectAndBody = () => {
@@ -34,14 +37,10 @@ const [
 ] = getCommitSubjectAndBody();
 
 // 2. render
-const parseJiraIssue = (line) => {
-  
-};
-
 const commitLines = `${GIT_CLONE_COMMIT_MESSAGE_SUBJECT}${commitMessageSeparator}${GIT_CLONE_COMMIT_MESSAGE_BODY}`.split(commitMessageSeparator);
 
 const issues = commitLines
-  .map(parseJiraIssue)
+  .map(line => parseJiraIssue(line, JIRA_PROJECT_NAME))
   .filter(Boolean);
 
 const data = {
